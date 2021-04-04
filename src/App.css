@@ -1,5 +1,5 @@
 body{
-  background: url(teclado_monitores_az.jpg) no-repeat center top fixed;
+  background: url(eccimarcow.jpg) no-repeat center center fixed;
   background-size: cover;
   -webkit-background: cover;
   -moz-background: cover;
@@ -8,5 +8,5 @@ body{
 }
 
 canvas.makeStyles-particlesCanvas-1 { 
-  height: 88% !important; 
+  height: 90% !important; 
 }

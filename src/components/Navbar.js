@@ -22,7 +22,7 @@ import {
   Apps,
   ContactMail,
 } from "@material-ui/icons";
-import avatar from "../msavatar.png";
+import avatar from "../msavatartoon.png";
 import Footer from "./Footer";
 
 //CSS styles

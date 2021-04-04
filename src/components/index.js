@@ -40,7 +40,7 @@ const Home = () => {
             line_linked: {
               enable: true,
               distance: 120,
-              color: "#ccc",
+              color: "#fff",
             },
             color: {
               value: "#fff",
@@ -61,15 +61,15 @@ const Home = () => {
             },
             move: {
               enable: true,
-              speed: 1,
-              direction: "bottom",
+              speed: 2,
+              direction: "top",
               straight: false,
               random: true,
-              attract: {
-                enable: true,
-                rotatex: 3000,
-                rotatey: 1500,
-              },
+              // attract: {
+              //   enable: true,
+              //   rotatex: 3000,
+              //   rotatey: 1500,
+              // },
               out_mode: "out",
             },
           },
