@@ -197,7 +197,16 @@ const Portfolio = () => {
                   REST API - CRUD
                 </Typography>
                 <Typography variant="body2" color="textSecondary" component="p">
-                  Created a Fake API REST in NodeJS. When the project opens, a JSON object is created from Ghibli's API showing basic info of their movies. Once the object is filled, we have a CRUD interface to handle the data.
+                  This project access to a Fake API REST with Ghibli's movie data made in NodeJS with json-server. I have an endpoint towards port 3001, from where the JSON object is read and displayed in a Material-UI table. A full ReactJS CRUD interface to handle the data is available.
+                </Typography>
+                <br/>
+                <Typography variant="body1" color="textPrimary">
+                  Used tools:
+                </Typography>
+                <Typography variant="body2" color="textSecondary" component="ul">
+                  <li>NodeJS</li>
+                  <li>ReactJS</li>
+                  <li>Material-UI</li>
                 </Typography>
               </CardContent>
             </CardActionArea>
