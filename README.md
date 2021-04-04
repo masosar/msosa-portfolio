@@ -1,5 +1,7 @@
 # Getting Started with Create React App
 
+## In the section 'Portfolio' the last project "REST API - CRUD" requires the launch of the project Fake-Api at this same repository. It will automatically be load in port 3001
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
