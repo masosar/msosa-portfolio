@@ -201,12 +201,13 @@ const Portfolio = () => {
                 </Typography>
                 <br/>
                 <Typography variant="body1" color="textPrimary">
-                  Used tools:
+                  Tools used:
                 </Typography>
                 <Typography variant="body2" color="textSecondary" component="ul">
                   <li>NodeJS</li>
                   <li>ReactJS</li>
                   <li>Material-UI</li>
+                  <li>json-server</li>
                 </Typography>
               </CardContent>
             </CardActionArea>

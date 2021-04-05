@@ -74,7 +74,7 @@ function CrudRestApi() {
 
   const [data, setData] = useState([]);
   const [modalInsert, setModalInsert] = useState(false);
-  const [modalEdit, setModalEdit] = useState(false);
+  const [modalUpdate, setModalUpdate] = useState(false);
   const [modalDelete, setModalDelete] = useState(false);
 
   // Save data of the new record ----->
@@ -114,7 +114,7 @@ function CrudRestApi() {
       .put(baseUrl + selectedMovie.id, selectedMovie)
       .then((response) => {
         var newData = data;
-        newData.map((movie) => {
+        newData.forEach(function(movie){
           if (selectedMovie.id === movie.id) {
             movie.title = selectedMovie.title;
             movie.original_title = selectedMovie.original_title;
@@ -124,9 +124,13 @@ function CrudRestApi() {
             movie.release_date = selectedMovie.release_date;
           }
         });
+
         setData(newData);
-        toggleModalEdit();
-      });
+        toggleModalUpdate();
+      },
+       (error) => {
+         console.log(error);
+       });
   };
 
   const petitionDelete = async () => {
@@ -140,8 +144,8 @@ function CrudRestApi() {
     setModalInsert(!modalInsert);
   };
 
-  const toggleModalEdit = () => {
-    setModalEdit(!modalEdit);
+  const toggleModalUpdate = () => {
+    setModalUpdate(!modalUpdate);
   };
 
   const toggleModalDelete = () => {
@@ -150,7 +154,7 @@ function CrudRestApi() {
 
   const selectMovie = (movie, caso) => {
     setSelectedMovie(movie);
-    caso === "Edit" ? toggleModalEdit() : toggleModalDelete();
+    caso === "Edit" ? toggleModalUpdate() : toggleModalDelete();
   };
 
   useEffect(() => {
@@ -215,7 +219,7 @@ function CrudRestApi() {
     </div>
   );
 
-  const bodyEdit = (
+  const modalBodyUpdate = (
     <div className={classes.modal}>
       <h3>Edit Movie</h3>
       <TextField
@@ -271,12 +275,12 @@ function CrudRestApi() {
         <Button color="primary" onClick={() => petitionPut()}>
           Edit
         </Button>
-        <Button onClick={() => toggleModalEdit()}>Cancelar</Button>
+        <Button onClick={() => toggleModalUpdate()}>Cancelar</Button>
       </div>
     </div>
   );
 
-  const bodyDelete = (
+  const modalBodyDelete = (
     <div className={classes.modal}>
       <p>
         Are you sure to delete the movie{" "}
@@ -311,14 +315,14 @@ function CrudRestApi() {
           <TableBody>
             {data.map((movie) => (
               <StyledTableRow key={movie.id}>
-                <StyledTableCell>{movie.title}</StyledTableCell>
-                <StyledTableCell>
+                <StyledTableCell style={{ width: "10%" }}>{movie.title}</StyledTableCell>
+                <StyledTableCell style={{ width: "15%" }}>
                   {movie.original_title_romanised} ({movie.original_title})
                 </StyledTableCell>
-                <StyledTableCell>{movie.description}</StyledTableCell>
-                <StyledTableCell>{movie.director}</StyledTableCell>
-                <StyledTableCell>{movie.release_date}</StyledTableCell>
-                <StyledTableCell>
+                <StyledTableCell style={{ width: "45%" }}>{movie.description}</StyledTableCell>
+                <StyledTableCell style={{ width: "10%" }}>{movie.director}</StyledTableCell>
+                <StyledTableCell style={{ width: "10%" }}>{movie.release_date}</StyledTableCell>
+                <StyledTableCell style={{ width: "10%" }}>
                   <Edit
                     className={classes.icons}
                     onClick={() => selectMovie(movie, "Edit")}
@@ -339,12 +343,12 @@ function CrudRestApi() {
         {modalBodyInsert}
       </Modal>
 
-      <Modal open={modalEdit} onClose={() => toggleModalEdit()}>
-        {bodyEdit}
+      <Modal open={modalUpdate} onClose={() => toggleModalUpdate()}>
+        {modalBodyUpdate}
       </Modal>
 
       <Modal open={modalDelete} onClose={() => toggleModalDelete()}>
-        {bodyDelete}
+        {modalBodyDelete}
       </Modal>
     </Box>
   );
