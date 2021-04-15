@@ -7,6 +7,9 @@ import Resume from './components/Resume';
 import Portfolio from './components/Portfolio';
 import Contacts from './components/Contacts';
 import CrudRestApi from './components/crudmaterialhooks/CrudRestApi';
+import Login from './components/reduxlogin/Login';
+import MaterialuiRest from './components/crudmaterialhooks/Mui_Rest';
+import Create from './components/crudmaterialhooks/Mui_Create';
 
 function App() {
   return (
@@ -17,7 +20,10 @@ function App() {
         <Route path="/resume" component={Resume} />
         <Route path="/portfolio" component={Portfolio} />
         <Route path="/contacts" component={Contacts} />
-        <Route path="/consolas" component={CrudRestApi} />
+        <Route path="/crudapi" component={CrudRestApi} />
+        <Route path="/reduxlogin" component={Login} />
+        <Route path="/muirest" component={MaterialuiRest} />
+        <Route path="/create" component={Create} />
       </Router>
     </>
   );

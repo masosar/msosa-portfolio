@@ -17,6 +17,7 @@ import project2 from "../images/javascript-fullstack.jpg";
 import project3 from "../images/mern-stack.jpg";
 import project4 from "../images/react-redux.jpg";
 import project5 from "../images/crudrestapi.png";
+import materialfetch from "../images/materialfetch.jpg";
 import { Link } from 'react-router-dom';
 
 //CSS styles
@@ -46,21 +47,23 @@ const Portfolio = () => {
                 component="img"
                 alt="Project 1"
                 height="140"
-                image={project1}
+                image={materialfetch}
               />
               <CardContent>
                 <Typography gutterBottom variant="h5">
-                  Project 1
+                  REST API with Material-UI
                 </Typography>
                 <Typography variant="body2" color="textSecondary" component="p">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Reprehenderit dolores illum hic vero. Nihil explicabo porro
-                  et, at fugit dolore blanditiis cum ipsa quidem necessitatibus
-                  culpa perspiciatis, exercitationem maiores aspernatur.At
-                  consectetur dolor expedita dolorum fugiat quaerat quae
-                  eligendi delectus dicta numquam itaque commodi, voluptate in
-                  ipsam aut, ex illo. Eaque vitae veniam impedit, ex libero
-                  porro odio blanditiis enim.
+                  Material-UI is an open source library aligned with Google's Material Design and its icons. In this project I make an extense use of Material-UI while connecting and adding data to an endpoint.  
+                </Typography>
+                <br/>
+                <Typography variant="body1" color="textPrimary">
+                  Tools used:
+                </Typography>
+                <Typography variant="body2" color="textSecondary" component="ul">
+                  <li>Json-server</li>
+                  <li>Fetch</li>
+                  <li>Material-UI</li>
                 </Typography>
               </CardContent>
             </CardActionArea>
@@ -69,8 +72,11 @@ const Portfolio = () => {
                   Share
                 </Button>
                 <Button size="small" color="primary">
-                  Live demo
+                <Link to='/create' style={{color: '#3f51b5', textDecoration: 'none'}} activeStyle={{color: 'tan'}}>
+                    Live demo
+                  </Link>
                 </Button>
+
               </CardActions>
           </Card>
         </Grid>
@@ -155,13 +161,13 @@ const Portfolio = () => {
             <CardActionArea>
               <CardMedia
                 component="img"
-                alt="Project 1"
+                alt="Project 4"
                 height="140"
                 image={project4}
               />
               <CardContent>
                 <Typography gutterBottom variant="h5">
-                  Project 4
+                  Application 
                 </Typography>
                 <Typography variant="body2" color="textSecondary" component="p">
                   Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -216,7 +222,7 @@ const Portfolio = () => {
                   Share
                 </Button>
                 <Button size="small" color="primary">
-                  <Link to='/consolas' style={{color: '#3f51b5', textDecoration: 'none'}} activeStyle={{color: 'tan'}}>
+                  <Link to='/crudapi' style={{color: '#3f51b5', textDecoration: 'none'}} activeStyle={{color: 'tan'}}>
                     Live demo
                   </Link>
                 </Button>

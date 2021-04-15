@@ -192,6 +192,8 @@ function CrudRestApi() {
         name="description"
         className={classes.inputMaterial}
         label="Description"
+        multiline
+        rows={6}
         onChange={handleChange}
       />
       <br />

@@ -1,5 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap');
+
 body{
-  background: url(eccimarcow.jpg) no-repeat center center fixed;
+  background: url(mark-dark.jpg) no-repeat center bottom fixed;
   background-size: cover;
   -webkit-background: cover;
   -moz-background: cover;
@@ -7,6 +9,6 @@ body{
   background: cover;
 }
 
-canvas.makeStyles-particlesCanvas-1 { 
+/* canvas.makeStyles-particlesCanvas-1 { 
   height: 90% !important; 
-}
+} */

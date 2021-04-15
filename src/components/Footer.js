@@ -2,13 +2,14 @@ import React from 'react';
 import {makeStyles} from "@material-ui/styles";
 import {BottomNavigation, BottomNavigationAction} from '@material-ui/core';
 import Facebook from '@material-ui/icons/Facebook';
-import Twitter from '@material-ui/icons/Twitter';
+// import Twitter from '@material-ui/icons/Twitter';
 import Instagram from '@material-ui/icons/Instagram';
+import LinkedInIcon from '@material-ui/icons/LinkedIn';
 
 //CSS styles
 const useStyles = makeStyles((theme) => ({
     root: {
-      //   background: "#233",
+         background: "#412728",
       "& .MuiBottomNavigationAction-root":{
           minWidth: 0,
           maxWidth: 250,
@@ -17,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
       "& .MuiSvgIcon-root": {
           fill: "tan",
          "&:hover": {
-             fill: "tomato",
+             fill: "#f9f871",
              fontSize: "1.8rem",
          }, 
       },
@@ -32,12 +33,12 @@ const Footer = () => {
             <BottomNavigationAction 
                 className={classes.root}
                 style={{ padding: 0 }}
-                icon={<Facebook/>}
+                icon={<LinkedInIcon/>}
             />
             <BottomNavigationAction 
                 className={classes.root}
                 style={{ padding: 0 }}
-                icon={<Twitter/>}
+                icon={<Facebook/>}
             />
             <BottomNavigationAction 
                 className={classes.root}

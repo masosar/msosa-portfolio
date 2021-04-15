@@ -22,14 +22,14 @@ import {
   Apps,
   ContactMail,
 } from "@material-ui/icons";
-import avatar from "../msavatartoon.png";
+import avatar from "../msavatartoon2.png";
 import Footer from "./Footer";
 
 //CSS styles
 const useStyles = makeStyles((theme) => ({
   menuSliderContainer: {
     width: 250,
-    background: "#222",
+    background: "#7f4d3e",
     height: "100%",
   },
   avatar: {
@@ -39,7 +39,7 @@ const useStyles = makeStyles((theme) => ({
     height: theme.spacing(13),
   },
   listItem: {
-    color: "tan",
+    color: "#ffe3f1",
   },
 }));
 
@@ -109,12 +109,12 @@ const Navbar = () => {
   return (
     <>
       <Box component="nav">
-        <AppBar position="static" style={{ background: "#222" }}>
+        <AppBar position="static" style={{ background: "#7f4d3e" }}>
           <Toolbar>
             <IconButton onClick={toggleSlider("right", true)}>
-              <ArrowBack style={{ color: "tomato" }} />
+              <ArrowBack style={{ color: "#e2b659" }} />
             </IconButton>
-            <Typography variant="h5" style={{ color: "tan" }}>
+            <Typography variant="h5" style={{ color: "#ffe3f1" }}>
               Portfolio
             </Typography>
             <MobilRightMenuSlider

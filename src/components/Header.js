@@ -2,7 +2,7 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { Typography, Avatar, Grid, Box } from "@material-ui/core";
 import Typed from "react-typed";
-import avatar from "../msavatartoon.png";
+import avatar from "../msavatartoon2.png";
 
 const useStyles = makeStyles((theme) => ({
   avatar: {
@@ -11,10 +11,10 @@ const useStyles = makeStyles((theme) => ({
     margin: theme.spacing(1),
   },
   title: {
-    color: "tomato",
+    color: "#f9f871",
   },
   subtitle: {
-    color: "tan",
+    color: "#e2b659",
     marginBottom: "3rem",
   },
   typedContainer: {
