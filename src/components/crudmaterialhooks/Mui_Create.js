@@ -172,7 +172,7 @@ export default function Create() {
                   color="primary"
                   fullWidth
                   required
-                  error={setOriginalTitleRomanisedError}
+                  error={originalTitleRomanisedError}
                 />
                 <TextField
                   className={classes.field}
@@ -194,7 +194,7 @@ export default function Create() {
                   color="primary"
                   fullWidth
                   required
-                  error={setDirectorError}
+                  error={directorError}
                 />
                 <TextField
                   className={classes.field}
@@ -204,7 +204,7 @@ export default function Create() {
                   color="primary"
                   fullWidth
                   required
-                  error={setRelease_dateError}
+                  error={release_dateError}
                 />
                 {/* <Radio value="hello" />
         <Radio value="goodbye" /> */}

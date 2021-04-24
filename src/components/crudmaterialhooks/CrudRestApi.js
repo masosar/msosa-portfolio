@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import CircularProgress from '@material-ui/core/CircularProgress';
 import Navbar from "../Navbar";
 import axios from "axios";
 import {
@@ -18,7 +19,9 @@ import { withStyles, makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 
 //const baseUrl = "https://ghibliapi.herokuapp.com/films/";
-const baseUrl = "http://localhost:3001/movies/";
+//const baseUrl = "http://localhost:3001/movies/";
+const baseUrl = "https://node-ex-mysql.herokuapp.com/";
+
 
 //CSS styles
 const useStyles = makeStyles((theme) => ({
@@ -28,6 +31,7 @@ const useStyles = makeStyles((theme) => ({
   },
   box: {
     backgroundColor: "#fff",
+    paddingTop: "60px",
   },
   modal: {
     position: "absolute",
@@ -76,16 +80,15 @@ function CrudRestApi() {
   const [modalInsert, setModalInsert] = useState(false);
   const [modalUpdate, setModalUpdate] = useState(false);
   const [modalDelete, setModalDelete] = useState(false);
-
-  // Save data of the new record ----->
   const [selectedMovie, setSelectedMovie] = useState({
     title: "",
     original_title: "",
-    romanised_title: "",
+    original_title_romanised: "",
     description: "",
     director: "",
     release_date: "",
   });
+  const [get, setGet] = useState(null);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -97,13 +100,14 @@ function CrudRestApi() {
   // Save data of the new record -----<
   
   const petitionGet = async () => {
-    await axios.get(baseUrl).then((response) => {
+    await axios.get(baseUrl+'movies/').then((response) => {
+      //console.log(response.data);
       setData(response.data);
     });
   };
 
   const petitionPost = async () => {
-    await axios.post(baseUrl, selectedMovie).then((response) => {
+    await axios.post(baseUrl+'add/', selectedMovie).then((response) => {
       setData(data.concat(response.data));
       toggleModalInsert();
     });
@@ -111,14 +115,15 @@ function CrudRestApi() {
 
   const petitionPut = async () => {
     await axios
-      .put(baseUrl + selectedMovie.id, selectedMovie)
+      .put(baseUrl+'update/' + selectedMovie.id, selectedMovie)
       .then((response) => {
         var newData = data;
+        //console.log(newData);
         newData.forEach(function(movie){
           if (selectedMovie.id === movie.id) {
             movie.title = selectedMovie.title;
             movie.original_title = selectedMovie.original_title;
-            movie.romanised_title = selectedMovie.romanised_title;
+            movie.original_title_romanised = selectedMovie.original_title_romanised;
             movie.description = selectedMovie.description;
             movie.director = selectedMovie.director;
             movie.release_date = selectedMovie.release_date;
@@ -134,7 +139,7 @@ function CrudRestApi() {
   };
 
   const petitionDelete = async () => {
-    await axios.delete(baseUrl + selectedMovie.id).then((response) => {
+    await axios.delete(baseUrl+'delete/' + selectedMovie.id).then((response) => {
       setData(data.filter((movie) => movie.id !== selectedMovie.id));
       toggleModalDelete();
     });
@@ -182,7 +187,7 @@ function CrudRestApi() {
       />
       <br />
       <TextField
-        name="romanised_title"
+        name="original_title_romanised"
         className={classes.inputMaterial}
         label="Romanised title"
         onChange={handleChange}
@@ -241,11 +246,11 @@ function CrudRestApi() {
       />
       <br />
       <TextField
-        name="romanised_title"
+        name="original_title_romanised"
         className={classes.inputMaterial}
         label="Romanised title"
         onChange={handleChange}
-        value={selectedMovie && selectedMovie.romanised_title}
+        value={selectedMovie && selectedMovie.original_title_romanised}
       />
       <br />
       <TextField
@@ -253,6 +258,8 @@ function CrudRestApi() {
         className={classes.inputMaterial}
         label="Description"
         onChange={handleChange}
+        multiline
+        rows={6}
         value={selectedMovie && selectedMovie.description}
       />
       <br />
@@ -304,6 +311,9 @@ function CrudRestApi() {
       <Button onClick={() => toggleModalInsert()}>Add movie</Button>
       <TableContainer component={Paper}>
         <Table className={classes.table}>
+        {/* <div className={classes.root} align="center">
+          <CircularProgress />
+        </div> */}
           <TableHead>
             <TableRow>
               <StyledTableCell>Title</StyledTableCell>

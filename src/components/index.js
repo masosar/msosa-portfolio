@@ -40,16 +40,16 @@ const Home = () => {
             line_linked: {
               enable: true,
               distance: 150,
-              color: "#fff",
+              color: "#a3cfcd",
               width: 2
             },
             color: {
-              value: "#fff",
+              value: "#a3cfcd",
             },
             shape: {
               stroke: {
                 width: 5,
-                color: "#fff",
+                color: "#a3cfcd",
               },
               polygon: {
                 nb_sides: 12 

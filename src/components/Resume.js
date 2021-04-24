@@ -6,7 +6,8 @@ import { MenuItems } from "./ResumeItems";
 
 const useStyles = makeStyles((theme) => ({
   mainContainer: {
-    //background: "#233",
+    paddingTop: "60px",
+    background: "#000",
   },
   timeLine: {
     position: "relative",
@@ -16,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
       content: "''",
       position: "absolute",
       height: "100%",
-      border: "1px solid tan",
+      border: "1px solid #82a0aa",
       right: "40px",
       top: 0,
     },
@@ -35,7 +36,7 @@ const useStyles = makeStyles((theme) => ({
   },
   timeLineItem: {
     padding: "1rem",
-    borderBottom: "2px solid tan",
+    borderBottom: "2px solid #677381",
     position: "relative",
     margin: "1rem 3rem 1rem 1rem",
     clear: "both",
@@ -49,7 +50,7 @@ const useStyles = makeStyles((theme) => ({
       right: "-0.625rem",
       top: "calc(50% - 5px)",
       borderStyle: "solid",
-      borderColor: "tomato tomato transparent transparent",
+      borderColor: "#a3cfcd #a3cfcd transparent transparent",
       borderWidth: "0.625rem",
       transform: "rotate(45deg)",
     },
@@ -59,12 +60,12 @@ const useStyles = makeStyles((theme) => ({
       "&:nth-of-type(2n)": {
         float: "right",
         margin: "1rem",
-        borderColor: "tan",
+        borderColor: "#677381",
       },
       "&:nth-of-type(2n):before": {
         right: "auto",
         left: "-0.625rem",
-        borderColor: "transparent transparent tomato tomato",
+        borderColor: "transparent transparent #a3cfcd #a3cfcd",
       },
     },
   },
@@ -74,7 +75,7 @@ const useStyles = makeStyles((theme) => ({
     margin: "0 auto 0 auto",
     fontSize: "1rem",
     fontWeight: "bold",
-    background: "tomato",
+    background: "#4b4a54",
     color: "white",
     lineHeight: 1,
     padding: "0.5rem 0.5rem 0.5rem",
@@ -94,12 +95,12 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   heading: {
-    color: "tomato",
+    color: "#ff0000",
     padding: "3rem 0",
     textTransform: "uppercase",
   },
   subHeading: {
-    color: "white",
+    color: "#82a0aa",
     padding: "0",
     //textTransform: "uppercase",
   },
@@ -135,14 +136,14 @@ const Resume = () => {
                   <Typography
                     variant="body1"
                     align="center"
-                    style={{ color: "tomato", fontSize: "1.5rem" }}
+                    style={{ color: "#a3cfcd", fontSize: "1.5rem" }}
                   >
                     {item.companyName}
                   </Typography>
                   <Typography
                     variant="subtitle1"
                     align="center"
-                    style={{ color: "tan" }}
+                    style={{ color: "#fff" }}
                   >
                     {item.description}
                   </Typography>
@@ -175,14 +176,14 @@ const Resume = () => {
                   <Typography
                     variant="body1"
                     align="center"
-                    style={{ color: "tomato", fontSize: "1.5rem" }}
+                    style={{ color: "#a3cfcd", fontSize: "1.5rem" }}
                   >
                     Informática Administrativa
                   </Typography>
                   <Typography
                     variant="subtitle1"
                     align="center"
-                    style={{ color: "tan" }}
+                    style={{ color: "#fff" }}
                   >
                     Applying Administration and Computer Science to the design and operation of systems for the management of data.
                   </Typography>

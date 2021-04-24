@@ -5,31 +5,35 @@ import Facebook from '@material-ui/icons/Facebook';
 // import Twitter from '@material-ui/icons/Twitter';
 import Instagram from '@material-ui/icons/Instagram';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
+import { Link } from 'react-router-dom';
 
 //CSS styles
 const useStyles = makeStyles((theme) => ({
     root: {
-         background: "#412728",
+         background: "#2a272a",
       "& .MuiBottomNavigationAction-root":{
           minWidth: 0,
           maxWidth: 250,
       },
 
       "& .MuiSvgIcon-root": {
-          fill: "tan",
+          fill: "#82a0aa",
          "&:hover": {
-             fill: "#f9f871",
+             fill: "#a3cfcd",
              fontSize: "1.8rem",
          }, 
       },
     },
   }));
 
-const Footer = () => {
-    const classes = useStyles();
+  
+  const Footer = () => {
+      const classes = useStyles();
 
     return (
-        <BottomNavigation width="auto" style={{ background: "#222" }} >
+        <BottomNavigation 
+            width="auto"
+        >
             <BottomNavigationAction 
                 className={classes.root}
                 style={{ padding: 0 }}
@@ -41,6 +45,9 @@ const Footer = () => {
                 icon={<Facebook/>}
             />
             <BottomNavigationAction 
+                component={Link}
+                target={"_blank"}
+                to={"/https://www.instagram.com/marco_sosa_rosales/"}
                 className={classes.root}
                 style={{ padding: 0 }}
                 icon={<Instagram/>}

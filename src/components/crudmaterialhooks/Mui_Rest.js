@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 // import Navbar from "../Navbar";
-import Typography from "@material-ui/core/Typography";
+// import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
-import KeyboardArrowRightIcon from "@material-ui/icons/KeyboardArrowRight";
+// import KeyboardArrowRightIcon from "@material-ui/icons/KeyboardArrowRight";
 import { makeStyles } from "@material-ui/core";
-import { Grid, Paper } from "@material-ui/core";
+import { Grid } from "@material-ui/core";
 // import Radio from "@material-ui/core/Radio";
 // import RadioGroup from "@material-ui/core/RadioGroup";
 // import FormControlLabel from "@material-ui/core/FormControlLabel";
@@ -15,12 +15,12 @@ import {
   // Modal,
    Button,
 } from "@material-ui/core";
-import { useHistory } from "react-router-dom";
+// import { useHistory } from "react-router-dom";
 import { createMuiTheme, ThemeProvider } from "@material-ui/core";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import BgCactus from "../../cactus19201080.jpg";
-import Mui_NoteCard from "./Mui_NoteCard";
-import { mergeClasses } from "@material-ui/styles";
+import MuiNoteCard from "./Mui_NoteCard";
+// import { mergeClasses } from "@material-ui/styles";
 import { Link } from 'react-router-dom';
 
 const themeLight = createMuiTheme({
@@ -76,13 +76,14 @@ const useStyles = makeStyles({
 
 function MaterialuiRest() {
   const classes = useStyles();
-  const history = useHistory();
+  // const history = useHistory();
 
   //Store data from fetch
   const [movies, setMovies] = useState([]);
 
   useEffect(() => {
     fetch("http://localhost:3001/movies/")
+    //fetch("https://node-ex-mysql.herokuapp.com/movies")
       .then((res) => res.json())
       .then((data) => setMovies(data));
   }, []);
@@ -92,7 +93,7 @@ function MaterialuiRest() {
       method: 'DELETE'
     })
 
-    const newMovie = movies.filter(movie => movie.id != id);
+    const newMovie = movies.filter(movie => movie.id !== id);
     setMovies(newMovie);
   } 
 
@@ -107,7 +108,7 @@ function MaterialuiRest() {
           <Grid container spacing={3}>
             {movies.map(movie => (
               <Grid item key={movie.id} xs={12} sm={6} md={4} >
-                <Mui_NoteCard  movie={movie} handleDelete={handleDelete} />
+                <MuiNoteCard  movie={movie} handleDelete={handleDelete} />
               </Grid>
             ))}
           </Grid>

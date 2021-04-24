@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import {Link} from 'react-router-dom';
+import { Link } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import MobilRightMenuSlider from "@material-ui/core/Drawer";
 import {
@@ -29,7 +29,7 @@ import Footer from "./Footer";
 const useStyles = makeStyles((theme) => ({
   menuSliderContainer: {
     width: 250,
-    background: "#7f4d3e",
+    background: "#4b4a54",
     height: "100%",
   },
   avatar: {
@@ -39,7 +39,7 @@ const useStyles = makeStyles((theme) => ({
     height: theme.spacing(13),
   },
   listItem: {
-    color: "#ffe3f1",
+    color: "#ccc",
   },
 }));
 
@@ -47,22 +47,22 @@ const menuItems = [
   {
     listIcon: <Home />,
     listText: "Home",
-    listPath: "/"
+    listPath: "/",
   },
   {
     listIcon: <AssignmentInd />,
     listText: "Resume",
-    listPath: "/resume"
+    listPath: "/resume",
   },
   {
     listIcon: <Apps />,
     listText: "Portfolio",
-    listPath: "/portfolio"
+    listPath: "/portfolio",
   },
   {
     listIcon: <ContactMail />,
-    listText: "Contacts",
-    listPath: "/contacts"
+    listText: "Contact",
+    listPath: "/contacts",
   },
 ];
 
@@ -78,21 +78,16 @@ const Navbar = () => {
   const classes = useStyles();
 
   const sideList = (slider) => (
-    <Box 
-        className={classes.menuSliderContainer} 
-        component="div"
-        onClick={toggleSlider(slider, false)}
+    <Box
+      className={classes.menuSliderContainer}
+      component="div"
+      onClick={toggleSlider(slider, false)}
     >
       <Avatar className={classes.avatar} src={avatar} alt="Mark Sosa" />
       <Divider />
       <List>
         {menuItems.map((lsItem, key) => (
-          <ListItem 
-            button 
-            key={key}
-            component={Link}
-            to = {lsItem.listPath}
-          >
+          <ListItem button key={key} component={Link} to={lsItem.listPath}>
             <ListItemIcon className={classes.listItem}>
               {lsItem.listIcon}
             </ListItemIcon>
@@ -109,14 +104,14 @@ const Navbar = () => {
   return (
     <>
       <Box component="nav">
-        <AppBar position="static" style={{ background: "#7f4d3e" }}>
+        <AppBar position="fixed" style={{ background: "#4b4a54" }}>
           <Toolbar>
             <IconButton onClick={toggleSlider("right", true)}>
-              <ArrowBack style={{ color: "#e2b659" }} />
+              <ArrowBack style={{ color: "#82a0aa" }} />
+              <Typography variant="h5" style={{ color: "#82a0aa" }}>
+                Portfolio
+              </Typography>
             </IconButton>
-            <Typography variant="h5" style={{ color: "#ffe3f1" }}>
-              Portfolio
-            </Typography>
             <MobilRightMenuSlider
               anchor="right"
               open={state.right}

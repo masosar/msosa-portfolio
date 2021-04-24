@@ -11,10 +11,10 @@ const useStyles = makeStyles((theme) => ({
     margin: theme.spacing(1),
   },
   title: {
-    color: "#f9f871",
+    color: "#ff0000",
   },
   subtitle: {
-    color: "#e2b659",
+    color: "#82a0aa",
     marginBottom: "3rem",
   },
   typedContainer: {
@@ -42,11 +42,12 @@ const Header = () => {
       <Typography className={classes.subtitle} variant="h4">
         <Typed
           strings={[
-            "Web Development",
-            "Frontend",
-            "REST API",
-            "PHP-MySql",
-            "MERN Stack",
+            "HTML | CSS | JavaScript",
+            "React JS Framework",
+            "Bootstrap | Material-UI",
+            "PHP-MySql Development",
+            "RESTful Services and APIs",
+            "Responsive Design"
           ]}
           typeSpeed={60}
           backSpeed={50}
