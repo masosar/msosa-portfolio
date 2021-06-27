@@ -4,13 +4,11 @@ import clsx from 'clsx';
 import {
   Typography,
   Box,
-  Grid,
   Card,
-  CardActionArea,
   CardActions,
   CardContent,
   CardMedia,
-  Button,
+  Button, Link
 } from "@material-ui/core";
 import Navbar from "./Navbar";
 import CardHeader from '@material-ui/core/CardHeader';
@@ -19,22 +17,20 @@ import Collapse from '@material-ui/core/Collapse';
 import IconButton from '@material-ui/core/IconButton';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import cra from '../images/crudrestapi.png';
-import ShareIcon from '@material-ui/icons/Share';
+import LinkIcon from '@material-ui/icons/Link';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 //import project1 from "../images/html-css-javascript-lg.jpg";
-import project2 from "../images/javascript-fullstack.jpg";
-import project3 from "../images/mern-stack.jpg";
-import project4 from "../images/react-redux.jpg";
-import project5 from "../images/crudrestapi.png";
-import materialfetch from "../images/materialfetch.jpg";
-import { Link } from "react-router-dom";
+import shoppingcart from "../images/shoppingcart.jpg";
+import simpleapi from "../images/books.jpg";
+import { Link as RouterLink }  from "react-router-dom";
+import Masonry from "react-masonry-css";
 
 //CSS styles
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
-      maxWidth: 345,
+      maxWidth: 400,
     },
     media: {
       height: 0,
@@ -54,12 +50,24 @@ const useStyles = makeStyles((theme: Theme) =>
       backgroundColor: 'red[500]',
     },
     mainContainer: {
+      margin: "auto auto",
       background: "#000",
       height: "100%",
+      maxWidth: "1200px",
+      marginTop: "64px"
     },
     cardContainer: {
-      maxWidth: 345,
-      margin: "5rem auto",
+      maxWidth: 400,
+      margin: "1rem auto",
+    },
+    masonrygrid: {
+      display: "flex",
+      marginLeft: "-30px",
+      width: "auto"
+    },
+    masonrygridcolumn: {
+      paddingLeft: "30px",
+      backgroundClip: "padding-box"
     },
   }),
 );
@@ -68,196 +76,91 @@ const useStyles = makeStyles((theme: Theme) =>
 const Portfolio = () => {
   const classes = useStyles();
   const [expanded, setExpanded] = useState(false);
+  const [expanded1, setExpanded1] = useState(false);
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
+  const handleExpandClick1 = () => {
+    setExpanded1(!expanded1);
+  };
+
+  const breakpoints = {
+    default: 3,
+    1100: 2,
+    700: 1
+  }
 
   return (
     <Box component="div" className={classes.mainContainer}>
       <Navbar />
-      <Grid container justify="center">
-        {/* Project 1 */}
-        <Grid item xs={12} sm={8} md={6}>
+
+        {/* Project tst */}
+        <Masonry
+          breakpointCols={breakpoints}
+          className={classes.masonrygrid}
+          columnClassName={classes.masonrygridcolumn}
+        >
+        <div>
           <Card className={classes.cardContainer}>
-            <CardActionArea>
-              <CardMedia
-                component="img"
-                alt="Project 1"
-                height="140"
-                image={materialfetch}
+              <CardHeader
+                avatar={
+                  <Avatar aria-label="recipe" className={classes.avatar}>
+                    S
+                  </Avatar>
+                }
+                action={
+                  <IconButton aria-label="settings">
+                    <MoreVertIcon />
+                  </IconButton>
+                }
+                title="Simple API"
+                subheader="Node"
               />
+              <CardMedia
+                className={classes.media}
+                image={simpleapi}
+                title="NODE API"
+              />
+
               <CardContent>
                 <Typography gutterBottom variant="h5">
-                  REST API with Material-UI
+                  NODE API
                 </Typography>
                 <Typography variant="body2" color="textSecondary" component="p">
-                  Material-UI is an open source library aligned with Google's
-                  Material Design and its icons. In this project I make an
-                  extense use of Material-UI while connecting and adding data to
-                  an endpoint.
-                </Typography>
-                <br />
-                <Typography variant="body1" color="textPrimary">
-                  Tools used:
-                </Typography>
-                <Typography
-                  variant="body2"
-                  color="textSecondary"
-                  component="ul"
-                >
-                  <li>Json-server</li>
-                  <li>Fetch</li>
-                  <li>Material-UI</li>
+                  10 minute project in which I learnt to create a Node API -with one endpoint- and to deploy it in Heroku. Is made up by one single endpoint which displays a data file in JSON format. Opens in new tab.
                 </Typography>
               </CardContent>
-            </CardActionArea>
-            <CardActions>
-              <Button size="small" color="primary">
-                Share
-              </Button>
+
+
+            <CardActions disableSpacing>
+              <IconButton aria-label="share">
+                <LinkIcon />
+              </IconButton>
               <Button size="small" color="primary">
                 <Link
-                  to="/create"
-                  style={{ color: "#3f51b5", textDecoration: "none" }}
-                  activeStyle={{ color: "tan" }}
+                  href="https://hostedbooksapi.herokuapp.com/books"
+                  target="_blank"
+                  rel="noreferrer"
                 >
                   Live demo
                 </Link>
               </Button>
+              <IconButton
+                className={clsx(classes.expand, {
+                  [classes.expandOpen]: expanded1,
+                })}
+                onClick={handleExpandClick1}
+                aria-expanded={expanded1}
+                aria-label="show more"
+              >
+                <ExpandMoreIcon />
+              </IconButton>
             </CardActions>
-          </Card>
-        </Grid>
 
-        {/* Project 2 */}
-        <Grid item xs={12} sm={8} md={6}>
-          <Card className={classes.cardContainer}>
-            <CardActionArea>
-              <CardMedia
-                component="img"
-                alt="Project 1"
-                height="140"
-                image={project2}
-              />
+            <Collapse in={expanded1} timeout="auto" unmountOnExit>
               <CardContent>
-                <Typography gutterBottom variant="h5">
-                  Project 2
-                </Typography>
-                <Typography variant="body2" color="textSecondary" component="p">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Reprehenderit dolores illum hic vero. Nihil explicabo porro
-                  et, at fugit dolore blanditiis cum ipsa quidem necessitatibus
-                  culpa perspiciatis, exercitationem maiores aspernatur.At
-                  consectetur dolor expedita dolorum fugiat quaerat quae
-                  eligendi delectus dicta numquam itaque commodi, voluptate in
-                  ipsam aut, ex illo. Eaque vitae veniam impedit, ex libero
-                  porro odio blanditiis enim.
-                </Typography>
-              </CardContent>
-            </CardActionArea>
-            <CardActions>
-              <Button size="small" color="primary">
-                Share
-              </Button>
-              <Button size="small" color="primary">
-                Live demo
-              </Button>
-            </CardActions>
-          </Card>
-        </Grid>
-
-        {/* Project 3 */}
-        <Grid item xs={12} sm={8} md={6}>
-          <Card className={classes.cardContainer}>
-            <CardActionArea>
-              <CardMedia
-                component="img"
-                alt="Project 1"
-                height="140"
-                image={project3}
-              />
-              <CardContent>
-                <Typography gutterBottom variant="h5">
-                  Project 3
-                </Typography>
-                <Typography variant="body2" color="textSecondary" component="p">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Reprehenderit dolores illum hic vero. Nihil explicabo porro
-                  et, at fugit dolore blanditiis cum ipsa quidem necessitatibus
-                  culpa perspiciatis, exercitationem maiores aspernatur.At
-                  consectetur dolor expedita dolorum fugiat quaerat quae
-                  eligendi delectus dicta numquam itaque commodi, voluptate in
-                  ipsam aut, ex illo. Eaque vitae veniam impedit, ex libero
-                  porro odio blanditiis enim.
-                </Typography>
-              </CardContent>
-            </CardActionArea>
-            <CardActions>
-              <Button size="small" color="primary">
-                Share
-              </Button>
-              <Button size="small" color="primary">
-                Live demo
-              </Button>
-            </CardActions>
-          </Card>
-        </Grid>
-
-        {/* Project 4 */}
-        <Grid item xs={12} sm={8} md={6}>
-          <Card className={classes.cardContainer}>
-            <CardActionArea>
-              <CardMedia
-                component="img"
-                alt="Project 4"
-                height="140"
-                image={project4}
-              />
-              <CardContent>
-                <Typography gutterBottom variant="h5">
-                  Application
-                </Typography>
-                <Typography variant="body2" color="textSecondary" component="p">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Reprehenderit dolores illum hic vero. Nihil explicabo porro
-                  et, at fugit dolore blanditiis cum ipsa quidem necessitatibus
-                  culpa perspiciatis, exercitationem maiores aspernatur.
-                </Typography>
-              </CardContent>
-            </CardActionArea>
-            <CardActions>
-              <Button size="small" color="primary">
-                Share
-              </Button>
-              <Button size="small" color="primary">
-                Live demo
-              </Button>
-            </CardActions>
-          </Card>
-        </Grid>
-
-        {/* Project 5 */}
-        <Grid item xs={12} sm={8} md={6}>
-          <Card className={classes.cardContainer}>
-            <CardActionArea>
-              <CardMedia
-                component="img"
-                alt="Project 1"
-                height="140"
-                image={project5}
-              />
-              <CardContent>
-                <Typography gutterBottom variant="h5">
-                  REST API - CRUD
-                </Typography>
-                <Typography variant="body2" color="textSecondary" component="p">
-                  This project access to a Fake API REST with Ghibli's movie
-                  data made in NodeJS with json-server. I have an endpoint
-                  towards port 3001, from where the JSON object is read and
-                  displayed in a Material-UI table. A full ReactJS CRUD
-                  interface to handle the data is available.
-                </Typography>
-                <br />
+              <br />
                 <Typography variant="body1" color="textPrimary">
                   Tools used:
                 </Typography>
@@ -268,30 +171,98 @@ const Portfolio = () => {
                 >
                   <li>NodeJS</li>
                   <li>ReactJS</li>
-                  <li>Material-UI</li>
-                  <li>json-server</li>
+                  <li>Heroku</li>
+                  <li>Postman</li>
+                </Typography>
+                <br/>
+                <Typography paragraph>
+                  <pre>
+                    
+                  </pre>
                 </Typography>
               </CardContent>
-            </CardActionArea>
-            <CardActions>
+            </Collapse>
+          </Card>
+        </div>
+
+        {/* shopping cart */}
+        <div>
+          <Card className={classes.cardContainer}>
+              <CardHeader
+                avatar={
+                  <Avatar aria-label="recipe" className={classes.avatar}>
+                    Sh
+                  </Avatar>
+                }
+                action={
+                  <IconButton aria-label="settings">
+                    <MoreVertIcon />
+                  </IconButton>
+                }
+                title="Super Simple Shopping Cart"
+                subheader="React"
+              />
+              <CardMedia
+                className={classes.media}
+                image={shoppingcart}
+                title="Shopping cart"
+              />
+
+              <CardContent>
+                <Typography gutterBottom variant="h5">
+                  SIMPLE SHOPPING CART
+                </Typography>
+                <Typography variant="body2" color="textSecondary" component="p">
+                  This is a simple module and part of a Shopping Cart. It stores the selected items and calculates the total. Can add or remove items at will.
+                </Typography>
+              </CardContent>
+
+
+            <CardActions disableSpacing>
+              <IconButton aria-label="share">
+                <LinkIcon />
+              </IconButton>
               <Button size="small" color="primary">
-                Share
-              </Button>
-              <Button size="small" color="primary">
-                <Link
-                  to="/crudapi"
+                <RouterLink
+                  to="/shop"
                   style={{ color: "#3f51b5", textDecoration: "none" }}
-                  activeStyle={{ color: "tan" }}
+                  activestyle={{ color: "tan" }}
                 >
                   Live demo
-                </Link>
+                </RouterLink>
               </Button>
+              <IconButton
+                className={clsx(classes.expand, {
+                  [classes.expandOpen]: expanded,
+                })}
+                onClick={handleExpandClick}
+                aria-expanded={expanded}
+                aria-label="show more"
+              >
+                <ExpandMoreIcon />
+              </IconButton>
             </CardActions>
+
+            <Collapse in={expanded} timeout="auto" unmountOnExit>
+              <CardContent>
+                <Typography variant="body1" color="textPrimary">
+                  Tools used:
+                </Typography>
+                <Typography
+                  variant="body2"
+                  color="textSecondary"
+                  component="ul"
+                >
+                  <li>ReactJS</li>
+                  <li>Material-UI</li>
+                </Typography>
+              </CardContent>
+            </Collapse>
           </Card>
-        </Grid>
+        </div>
 
         {/* Project tst */}
-        <Grid item xs={12} sm={8} md={6}>
+        <div>
           <Card className={classes.cardContainer}>
               <CardHeader
                 avatar={
@@ -318,23 +289,23 @@ const Portfolio = () => {
                   REST API - CRUD
                 </Typography>
                 <Typography variant="body2" color="textSecondary" component="p">
-                  In development of this project I created a json-server's Fake API REST with Ghibli's movie data and used MaterialUI for the looks. Then I deploy the final NodeJS API in Heroku.
+                  NodeJS API based in a single basic endpoint which receives the header with the appropriate http verb in the request. The main challenge was to overcome the CORS error.
                 </Typography>
               </CardContent>
 
 
             <CardActions disableSpacing>
               <IconButton aria-label="share">
-                <ShareIcon />
+                <LinkIcon />
               </IconButton>
               <Button size="small" color="primary">
-                <Link
+                <RouterLink
                   to="/crudapi"
                   style={{ color: "#3f51b5", textDecoration: "none" }}
-                  activeStyle={{ color: "tan" }}
+                  activestyle={{ color: "tan" }}
                 >
                   Live demo
-                </Link>
+                </RouterLink>
               </Button>
               <IconButton
                 className={clsx(classes.expand, {
@@ -350,7 +321,6 @@ const Portfolio = () => {
 
             <Collapse in={expanded} timeout="auto" unmountOnExit>
               <CardContent>
-              <br />
                 <Typography variant="body1" color="textPrimary">
                   Tools used:
                 </Typography>
@@ -360,30 +330,19 @@ const Portfolio = () => {
                   component="ul"
                 >
                   <li>NodeJS</li>
+                  <li>Express</li>
                   <li>ReactJS</li>
+                  <li>MySql</li>
+                  <li>Cors</li>
                   <li>Material-UI</li>
                   <li>json-server</li>
                   <li>Postman</li>
                 </Typography>
-                <br/>
-                <Typography paragraph>
-                  API is an abstraction of functions and procedures.
-                  REST is a logical set of restrictions and recommendations to build an API. Is an architectural style.
-                  RestFul API is an implementation of the REST logic and works strictly under Client - Server architechture and uses HTTP as the communication protocol.
-                  But how the server knows what to do? Under REST, each of our API procedures has three important parts: 
-                </Typography>
-                <Typography
-                  component="ul"
-                >
-                  <li>HTTP Verb (GET, POST, DELETE, PUT, PATCH, etc.)</li>
-                  <li>An unique URI (Uniform Resource Identifier)</li>
-                  <li>Required data for the server to satisfy the request, including the authentication information</li>
-                </Typography>
               </CardContent>
             </Collapse>
           </Card>
-        </Grid>
-      </Grid>
+        </div>
+        </Masonry>
     </Box>
   );
 };

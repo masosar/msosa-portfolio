@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import CircularProgress from '@material-ui/core/CircularProgress';
+//import CircularProgress from '@material-ui/core/CircularProgress';
 import Navbar from "../Navbar";
 import axios from "axios";
 import {
@@ -18,9 +18,9 @@ import { Edit, Delete } from "@material-ui/icons";
 import { withStyles, makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 
-//const baseUrl = "https://ghibliapi.herokuapp.com/films/";
+const baseUrl = "https://ghibliapi.herokuapp.com/films/";
 //const baseUrl = "http://localhost:3001/movies/";
-const baseUrl = "https://node-ex-mysql.herokuapp.com/";
+//const baseUrl = "https://node-ex-mysql.herokuapp.com/";
 
 
 //CSS styles
@@ -88,7 +88,7 @@ function CrudRestApi() {
     director: "",
     release_date: "",
   });
-  const [get, setGet] = useState(null);
+//  const [get, setGet] = useState(null);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
