@@ -289,7 +289,7 @@ const Portfolio = () => {
                   REST API - CRUD
                 </Typography>
                 <Typography variant="body2" color="textSecondary" component="p">
-                  NodeJS API based in a single basic endpoint which receives the header with the appropriate http verb in the request. The main challenge was to overcome the CORS error.
+                  NodeJS API based in a single basic endpoint which receives the header with the appropriate http verb in the request. The biggest challenge was to overcome the CORS error.
                 </Typography>
               </CardContent>
 

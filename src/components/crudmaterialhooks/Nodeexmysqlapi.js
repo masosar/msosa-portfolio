@@ -191,6 +191,7 @@ const Nodeexmysqlapi = () => {
               </TableHead>
               <TableBody>
                 {dataload.map((datal) => (
+                  <>
                   <StyledTableRow key={datal.index}>
                     <StyledTableCell style={{ width: "2%" }}>
                       <Skeleton />
@@ -213,6 +214,29 @@ const Nodeexmysqlapi = () => {
                       <Skeleton />
                     </StyledTableCell>
                   </StyledTableRow>
+                  <StyledTableRow key={datal.index}>
+                    <StyledTableCell style={{ width: "2%" }}>
+                      <Skeleton />
+                    </StyledTableCell>
+                    <StyledTableCell style={{ width: "10%" }}>
+                      <Skeleton />
+                    </StyledTableCell>
+                    <StyledTableCell style={{ width: "55%" }}>
+                      <Skeleton />
+                    </StyledTableCell>
+                    <StyledTableCell style={{ width: "13%" }}>
+                      <Skeleton />
+                    </StyledTableCell>
+                    <StyledTableCell style={{ width: "10%" }}>
+                      <Skeleton />
+                    </StyledTableCell>
+                    <StyledTableCell style={{ width: "10%" }}>
+                      <Skeleton />
+                      &nbsp;&nbsp;&nbsp;
+                      <Skeleton />
+                    </StyledTableCell>
+                  </StyledTableRow>
+                  </>
                 ))}
               </TableBody>
             </Table>
@@ -231,11 +255,11 @@ const Nodeexmysqlapi = () => {
           setLoading(false);
         });
 
-      setLoading(false);
+      setLoading(true);
     };
-    // setTimeout(() => {
+//     setTimeout(() => {
       getPosts();
-    // }, 8000);
+//     }, 8000);
   }, []);
 
   //! - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

@@ -1,8 +1,9 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import { Typography, Box } from "@material-ui/core";
+import { Typography, Box, Button } from "@material-ui/core";
 import Navbar from "./Navbar";
 import { MenuItems } from "./ResumeItems";
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   mainContainer: {
@@ -104,12 +105,47 @@ const useStyles = makeStyles((theme) => ({
     padding: "0",
     //textTransform: "uppercase",
   },
+  myFixedItem: {
+    position: "fixed",
+    right: "10px",
+    left: "auto",
+    marginTop: "80px",
+    minHeight: "50px",
+    width: "252px",
+    textAlign: "center",
+    wordWrap: "break-word",
+    backgroundColor: "aquamarine",
+  },
 }));
 
 const Resume = () => {
   const classes = useStyles();
   return (
     <>
+      {" "}
+      <div className={classes.myFixedItem}>
+        <p>Download Resume</p>
+        <Button size="small" color="primary">
+          <a
+            href="http://marcososa.me/files/cv_marco_en_php.pdf"
+            target="_blank"
+            rel="noreferrer"
+            download
+          >
+            English
+          </a>
+        </Button>
+        <Button size="small" color="primary">
+          <a
+            href="http://marcososa.me/files/cv_marco_es_php.pdf"
+            target="_blank"
+            rel="noreferrer"
+            download
+          >
+            Español
+          </a>
+        </Button>
+      </div>
       <Navbar />
       <Box component="header" className={classes.mainContainer}>
         <Typography variant="h4" align="center" className={classes.heading}>
@@ -125,7 +161,11 @@ const Resume = () => {
                 >
                   {item.year}
                 </Typography>
-                <Box component="div" className={classes.timeLineItem} key={item.index}>
+                <Box
+                  component="div"
+                  className={classes.timeLineItem}
+                  key={item.index}
+                >
                   <Typography
                     variant="h5"
                     align="center"
@@ -158,36 +198,36 @@ const Resume = () => {
           Education
         </Typography>
         <Box component="div" className={classes.timeLine}>
-
-                <Typography
-                  variant="h2"
-                  className={`${classes.timeLineYear} ${classes.timeLineItem}`}
-                >
-                  2001 - 2005
-                </Typography>
-                <Box component="div" className={classes.timeLineItem}>
-                  <Typography
-                    variant="h5"
-                    align="center"
-                    className={classes.subHeading}
-                  >
-                    Universidad Tecnológica de México
-                  </Typography>
-                  <Typography
-                    variant="body1"
-                    align="center"
-                    style={{ color: "#a3cfcd", fontSize: "1.5rem" }}
-                  >
-                    Informática Administrativa
-                  </Typography>
-                  <Typography
-                    variant="subtitle1"
-                    align="center"
-                    style={{ color: "#fff" }}
-                  >
-                    Applying Administration and Computer Science to the design and operation of systems for the management of data.
-                  </Typography>
-                </Box>
+          <Typography
+            variant="h2"
+            className={`${classes.timeLineYear} ${classes.timeLineItem}`}
+          >
+            2001 - 2005
+          </Typography>
+          <Box component="div" className={classes.timeLineItem}>
+            <Typography
+              variant="h5"
+              align="center"
+              className={classes.subHeading}
+            >
+              Universidad Tecnológica de México
+            </Typography>
+            <Typography
+              variant="body1"
+              align="center"
+              style={{ color: "#a3cfcd", fontSize: "1.5rem" }}
+            >
+              Informática Administrativa
+            </Typography>
+            <Typography
+              variant="subtitle1"
+              align="center"
+              style={{ color: "#fff" }}
+            >
+              Applying Administration and Computer Science to the design and
+              operation of systems for the management of data.
+            </Typography>
+          </Box>
         </Box>
       </Box>
     </>
