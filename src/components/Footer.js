@@ -5,8 +5,8 @@ import Facebook from '@material-ui/icons/Facebook';
 // import Twitter from '@material-ui/icons/Twitter';
 import Instagram from '@material-ui/icons/Instagram';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
-import { Link } from 'react-router-dom';
-import { Button } from '@material-ui/core';
+//
+//import { Button } from '@material-ui/core';
 
 //CSS styles
 const useStyles = makeStyles((theme) => ({

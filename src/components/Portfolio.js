@@ -1,6 +1,6 @@
-import React, {useState} from 'react';
-import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
-import clsx from 'clsx';
+import React, { useState } from "react";
+import { makeStyles, Theme, createStyles } from "@material-ui/core/styles";
+import clsx from "clsx";
 import {
   Typography,
   Box,
@@ -8,21 +8,23 @@ import {
   CardActions,
   CardContent,
   CardMedia,
-  Button, Link
+  Button,
+  Link,
 } from "@material-ui/core";
 import Navbar from "./Navbar";
-import CardHeader from '@material-ui/core/CardHeader';
-import Avatar from '@material-ui/core/Avatar';
-import Collapse from '@material-ui/core/Collapse';
-import IconButton from '@material-ui/core/IconButton';
-import MoreVertIcon from '@material-ui/icons/MoreVert';
-import cra from '../images/crudrestapi.png';
-import LinkIcon from '@material-ui/icons/Link';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import CardHeader from "@material-ui/core/CardHeader";
+import Avatar from "@material-ui/core/Avatar";
+import Collapse from "@material-ui/core/Collapse";
+import IconButton from "@material-ui/core/IconButton";
+import MoreVertIcon from "@material-ui/icons/MoreVert";
+import cra from "../images/crudrestapi.png";
+import LinkIcon from "@material-ui/icons/Link";
+import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 //import project1 from "../images/html-css-javascript-lg.jpg";
 import shoppingcart from "../images/shoppingcart.jpg";
 import simpleapi from "../images/books.jpg";
-import { Link as RouterLink }  from "react-router-dom";
+import coldhot from "../images/cold-hot.jpg";
+import { Link as RouterLink } from "react-router-dom";
 import Masonry from "react-masonry-css";
 
 //CSS styles
@@ -34,27 +36,27 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     media: {
       height: 0,
-      paddingTop: '56.25%', // 16:9
+      paddingTop: "56.25%", // 16:9
     },
     expand: {
-      transform: 'rotate(0deg)',
-      marginLeft: 'auto',
-      transition: theme.transitions.create('transform', {
+      transform: "rotate(0deg)",
+      marginLeft: "auto",
+      transition: theme.transitions.create("transform", {
         duration: theme.transitions.duration.shortest,
       }),
     },
     expandOpen: {
-      transform: 'rotate(180deg)',
+      transform: "rotate(180deg)",
     },
     avatar: {
-      backgroundColor: 'red[500]',
+      backgroundColor: "red[500]",
     },
     mainContainer: {
       margin: "auto auto",
       background: "#000",
       height: "100%",
       maxWidth: "1200px",
-      marginTop: "64px"
+      marginTop: "64px",
     },
     cardContainer: {
       maxWidth: 400,
@@ -63,75 +65,84 @@ const useStyles = makeStyles((theme: Theme) =>
     masonrygrid: {
       display: "flex",
       marginLeft: "-30px",
-      width: "auto"
+      width: "auto",
     },
     masonrygridcolumn: {
       paddingLeft: "30px",
-      backgroundClip: "padding-box"
+      backgroundClip: "padding-box",
     },
-  }),
+  })
 );
-
 
 const Portfolio = () => {
   const classes = useStyles();
-  const [expanded, setExpanded] = useState(false);
   const [expanded1, setExpanded1] = useState(false);
+  const [expanded2, setExpanded2] = useState(false);
+  const [expanded3, setExpanded3] = useState(false);
+  const [expanded4, setExpanded4] = useState(false);
 
-  const handleExpandClick = () => {
-    setExpanded(!expanded);
-  };
   const handleExpandClick1 = () => {
     setExpanded1(!expanded1);
+  };
+  const handleExpandClick2 = () => {
+    setExpanded2(!expanded2);
+  };
+  const handleExpandClick3 = () => {
+    setExpanded3(!expanded3);
+  };
+  const handleExpandClick4 = () => {
+    setExpanded4(!expanded4);
   };
 
   const breakpoints = {
     default: 3,
     1100: 2,
-    700: 1
-  }
+    700: 1,
+  };
 
   return (
     <Box component="div" className={classes.mainContainer}>
       <Navbar />
 
-        {/* Project tst */}
-        <Masonry
-          breakpointCols={breakpoints}
-          className={classes.masonrygrid}
-          columnClassName={classes.masonrygridcolumn}
-        >
+      {/* Project tst */}
+      <Masonry
+        breakpointCols={breakpoints}
+        className={classes.masonrygrid}
+        columnClassName={classes.masonrygridcolumn}
+      >
         <div>
           <Card className={classes.cardContainer}>
-              <CardHeader
-                avatar={
-                  <Avatar aria-label="recipe" className={classes.avatar}>
-                    S
-                  </Avatar>
-                }
-                action={
-                  <IconButton aria-label="settings">
-                    <MoreVertIcon />
-                  </IconButton>
-                }
-                title="Simple API"
-                subheader="Node"
-              />
-              <CardMedia
-                className={classes.media}
-                image={simpleapi}
-                title="NODE API"
-              />
+            <CardHeader
+              avatar={
+                <Avatar aria-label="recipe" className={classes.avatar}>
+                  S
+                </Avatar>
+              }
+              action={
+                <IconButton aria-label="settings">
+                  <MoreVertIcon />
+                </IconButton>
+              }
+              title="Simple API"
+              subheader="Node"
+            />
+            <CardMedia
+              className={classes.media}
+              image={simpleapi}
+              title="NODE API"
+            />
 
-              <CardContent>
-                <Typography gutterBottom variant="h5">
-                  NODE API
-                </Typography>
-                <Typography variant="body2" color="textSecondary" component="p">
-                  10 minute project in which I learnt to create a Node API -with one endpoint- and to deploy it in Heroku. Is made up by one single endpoint which displays a data file in JSON format. Opens in new tab.
-                </Typography>
-              </CardContent>
-
+            <CardContent>
+              <Typography gutterBottom variant="h5">
+                NODE API
+              </Typography>
+              <Typography variant="body2" color="textSecondary" component="p">
+                10 minute project in which I learnt to create a Node API -with
+                one endpoint- and to deploy it in Heroku. Is made up by one
+                single endpoint which displays a data file in JSON format. Opens
+                in new tab.
+              </Typography>
+            </CardContent>
 
             <CardActions disableSpacing>
               <IconButton aria-label="share">
@@ -160,7 +171,7 @@ const Portfolio = () => {
 
             <Collapse in={expanded1} timeout="auto" unmountOnExit>
               <CardContent>
-              <br />
+                <br />
                 <Typography variant="body1" color="textPrimary">
                   Tools used:
                 </Typography>
@@ -174,11 +185,9 @@ const Portfolio = () => {
                   <li>Heroku</li>
                   <li>Postman</li>
                 </Typography>
-                <br/>
+                <br />
                 <Typography paragraph>
-                  <pre>
-                    
-                  </pre>
+                  <pre></pre>
                 </Typography>
               </CardContent>
             </Collapse>
@@ -188,35 +197,36 @@ const Portfolio = () => {
         {/* shopping cart */}
         <div>
           <Card className={classes.cardContainer}>
-              <CardHeader
-                avatar={
-                  <Avatar aria-label="recipe" className={classes.avatar}>
-                    Sh
-                  </Avatar>
-                }
-                action={
-                  <IconButton aria-label="settings">
-                    <MoreVertIcon />
-                  </IconButton>
-                }
-                title="Super Simple Shopping Cart"
-                subheader="React"
-              />
-              <CardMedia
-                className={classes.media}
-                image={shoppingcart}
-                title="Shopping cart"
-              />
+            <CardHeader
+              avatar={
+                <Avatar aria-label="recipe" className={classes.avatar}>
+                  Sh
+                </Avatar>
+              }
+              action={
+                <IconButton aria-label="settings">
+                  <MoreVertIcon />
+                </IconButton>
+              }
+              title="Super Simple Shopping Cart"
+              subheader="React"
+            />
+            <CardMedia
+              className={classes.media}
+              image={shoppingcart}
+              title="Shopping cart"
+            />
 
-              <CardContent>
-                <Typography gutterBottom variant="h5">
-                  SIMPLE SHOPPING CART
-                </Typography>
-                <Typography variant="body2" color="textSecondary" component="p">
-                  This is a simple module and part of a Shopping Cart. It stores the selected items and calculates the total. Can add or remove items at will.
-                </Typography>
-              </CardContent>
-
+            <CardContent>
+              <Typography gutterBottom variant="h5">
+                SIMPLE SHOPPING CART
+              </Typography>
+              <Typography variant="body2" color="textSecondary" component="p">
+                This is a simple module and part of a Shopping Cart. It stores
+                the selected items and calculates the total. Can add or remove
+                items at will.
+              </Typography>
+            </CardContent>
 
             <CardActions disableSpacing>
               <IconButton aria-label="share">
@@ -233,17 +243,17 @@ const Portfolio = () => {
               </Button>
               <IconButton
                 className={clsx(classes.expand, {
-                  [classes.expandOpen]: expanded,
+                  [classes.expandOpen]: expanded2,
                 })}
-                onClick={handleExpandClick}
-                aria-expanded={expanded}
+                onClick={handleExpandClick2}
+                aria-expanded={expanded2}
                 aria-label="show more"
               >
                 <ExpandMoreIcon />
               </IconButton>
             </CardActions>
 
-            <Collapse in={expanded} timeout="auto" unmountOnExit>
+            <Collapse in={expanded2} timeout="auto" unmountOnExit>
               <CardContent>
                 <Typography variant="body1" color="textPrimary">
                   Tools used:
@@ -264,35 +274,32 @@ const Portfolio = () => {
         {/* Project tst */}
         <div>
           <Card className={classes.cardContainer}>
-              <CardHeader
-                avatar={
-                  <Avatar aria-label="recipe" className={classes.avatar}>
-                    N
-                  </Avatar>
-                }
-                action={
-                  <IconButton aria-label="settings">
-                    <MoreVertIcon />
-                  </IconButton>
-                }
-                title="Node API with CRUD"
-                subheader="Material-UI"
-              />
-              <CardMedia
-                className={classes.media}
-                image={cra}
-                title="NODE API"
-              />
+            <CardHeader
+              avatar={
+                <Avatar aria-label="recipe" className={classes.avatar}>
+                  N
+                </Avatar>
+              }
+              action={
+                <IconButton aria-label="settings">
+                  <MoreVertIcon />
+                </IconButton>
+              }
+              title="Node API with CRUD"
+              subheader="Material-UI"
+            />
+            <CardMedia className={classes.media} image={cra} title="NODE API" />
 
-              <CardContent>
-                <Typography gutterBottom variant="h5">
-                  REST API - CRUD
-                </Typography>
-                <Typography variant="body2" color="textSecondary" component="p">
-                  NodeJS API based in a single basic endpoint which receives the header with the appropriate http verb in the request. The biggest challenge was to overcome the CORS error.
-                </Typography>
-              </CardContent>
-
+            <CardContent>
+              <Typography gutterBottom variant="h5">
+                REST API - CRUD
+              </Typography>
+              <Typography variant="body2" color="textSecondary" component="p">
+                NodeJS API based in a single basic endpoint which receives the
+                header with the appropriate http verb in the request. The
+                biggest challenge was to overcome the CORS error.
+              </Typography>
+            </CardContent>
 
             <CardActions disableSpacing>
               <IconButton aria-label="share">
@@ -309,17 +316,17 @@ const Portfolio = () => {
               </Button>
               <IconButton
                 className={clsx(classes.expand, {
-                  [classes.expandOpen]: expanded,
+                  [classes.expandOpen]: expanded3,
                 })}
-                onClick={handleExpandClick}
-                aria-expanded={expanded}
+                onClick={handleExpandClick3}
+                aria-expanded={expanded3}
                 aria-label="show more"
               >
                 <ExpandMoreIcon />
               </IconButton>
             </CardActions>
 
-            <Collapse in={expanded} timeout="auto" unmountOnExit>
+            <Collapse in={expanded3} timeout="auto" unmountOnExit>
               <CardContent>
                 <Typography variant="body1" color="textPrimary">
                   Tools used:
@@ -342,7 +349,78 @@ const Portfolio = () => {
             </Collapse>
           </Card>
         </div>
-        </Masonry>
+
+        {/* Vue weather */}
+        <div>
+          <Card className={classes.cardContainer}>
+            <CardHeader
+              avatar={
+                <Avatar aria-label="recipe" className={classes.avatar}>
+                  Wh
+                </Avatar>
+              }
+              action={
+                <IconButton aria-label="settings">
+                  <MoreVertIcon />
+                </IconButton>
+              }
+              title="Weather App"
+              subheader="Vue"
+            />
+            <CardMedia className={classes.media} image={coldhot} title="Wheater app" />
+
+            <CardContent>
+              <Typography gutterBottom variant="h5">
+                WEATHER APP - VUE
+              </Typography>
+              <Typography variant="body2" color="textSecondary" component="p">
+                Vue.js application for searching weather by city. It accesses an API through axios to retrieve data.
+              </Typography>
+            </CardContent>
+
+            <CardActions disableSpacing>
+              <IconButton aria-label="share">
+                <LinkIcon />
+              </IconButton>
+              <Button size="small" color="primary">
+                <Link
+                  href="http://marcososa.me/vue/index.html"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Live demo
+                </Link>
+              </Button>
+              <IconButton
+                className={clsx(classes.expand, {
+                  [classes.expandOpen]: expanded4,
+                })}
+                onClick={handleExpandClick4}
+                aria-expanded={expanded4}
+                aria-label="show more"
+              >
+                <ExpandMoreIcon />
+              </IconButton>
+            </CardActions>
+
+            <Collapse in={expanded4} timeout="auto" unmountOnExit>
+              <CardContent>
+                <Typography variant="body1" color="textPrimary">
+                  Tools used:
+                </Typography>
+                <Typography
+                  variant="body2"
+                  color="textSecondary"
+                  component="ul"
+                >
+                  <li>Vue</li>
+                  <li>Axios</li>
+                </Typography>
+              </CardContent>
+            </Collapse>
+          </Card>
+        </div>
+      </Masonry>
     </Box>
   );
 };

@@ -1,10 +1,10 @@
 import React from "react";
 import {
-  BrowserRouter as Router,
+//  BrowserRouter as Router,
   Route,
   HashRouter,
   Switch,
-  Link,
+//  Link,
 } from "react-router-dom";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import "./App.css";
@@ -21,6 +21,7 @@ import MaterialuiRest from "./components/crudmaterialhooks/Mui_Rest";
 import Create from "./components/crudmaterialhooks/Mui_Create";
 import TstCard from "./components/crudmaterialhooks/Tst_Card";
 import ShoppingCart from "./components/ShoppingCart";
+import Vueweather from "./components/Vueweather";
 
 function App() {
   return (
@@ -39,6 +40,7 @@ function App() {
           <Route path="/create" component={Create} />
           <Route path="/test" component={TstCard} />
           <Route path="/shop" component={ShoppingCart} />
+          <Route path="/vueweather" component={Vueweather} />
         </Switch>
       </HashRouter>
     </>
